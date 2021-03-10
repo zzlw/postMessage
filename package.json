@@ -1,0 +1,27 @@
+{
+  "name": "postMessage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "home:serve": "serve ./home -l 7788",
+    "child:serve": "serve ./child -l 7787",
+    "start": "npm-run-all --parallel home:serve child:serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzlw/postMessage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzlw/postMessage/issues"
+  },
+  "homepage": "https://github.com/zzlw/postMessage#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "serve": "^11.3.2"
+  }
+}

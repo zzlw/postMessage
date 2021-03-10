@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首页</title>
+    <title>iframe页面</title>
   </head>
   <body>
-    <div>这是首页</div>
-    <iframe src="http://localhost:7787/index.html" frameborder="0"></iframe>
+    <div>这是iframe页面</div>
     <script>
+      if (window === top && confirm('postMessage 必须在首页使用，是否回到首页？')) {
+        location.href = 'http://localhost:7788'
+      }
+      window.parent.postMessage("你好啊，首页大哥", "http://localhost:7788");
       window.addEventListener("message", (event) => {
         var origin = event.origin || event.originalEvent.origin;
-        if (origin === "http://localhost:7787") {
-          console.log('首页', event.data)
-          event.source.postMessage({ a: 1 }, "http://localhost:7787");
+        if (origin === "http://localhost:7788") {
+          console.log("iframe页面", event.data);
         }
       });
     </script>
